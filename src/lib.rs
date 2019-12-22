@@ -5,7 +5,7 @@ use std::io::{stdout, BufWriter};
 use std::os::raw::{c_char, c_float, c_int, c_longlong, c_ulong};
 
 #[repr(C)]
-pub struct Point {
+pub struct Point_xy {
     pub x: c_float,
     pub y: c_float,
 }
@@ -38,13 +38,13 @@ pub extern "C" fn string_length(sz_msg: *const c_char) -> c_ulong {
 
 /// Some exemple with struct
 #[no_mangle]
-pub extern "C" fn give_me_a_point() -> Point {
-    Point { x: 3.14, y: 12.0 }
+pub extern "C" fn give_me_a_point() -> Point_xy {
+    Point_xy { x: 3.14, y: 12.0 }
 }
 
 /// Some other exemple with struct
 #[no_mangle]
-pub extern "C" fn magnitude(p: Point) -> c_float {
+pub extern "C" fn magnitude(p: Point_xy) -> c_float {
     (p.x * p.x + p.y * p.y).sqrt()
 }
 
