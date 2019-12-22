@@ -3,6 +3,9 @@
 # Build and create header
 cargo build
 
+# Unit test
+cargo test
+
 # Display ferry
 cargo run --example test_scale
 
